@@ -21,7 +21,7 @@ export default function Home() {
         <meta name="description" content="Bless Caring Network is Australia's trusted nurse-led staffing and care agency offering personalised support for hospitals, aged care, and home care." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="nursing agency, aged care staffing, home care support, nurse-led healthcare, Australia nursing jobs" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/Bless-Caring-Network-logo-Favicon" />
       </Head>
       <Header />
       <main className="space-y-16">
