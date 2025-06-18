@@ -114,9 +114,9 @@ export default function CulturalSafety() {
                 <p className="text-sm text-gray-600">Cultural Support</p>
               </div>
             </div>
-            <button className="mt-5 bg-gradient-to-r from-green-600 to-red-400 text-white font-semibold px-6 py-2 rounded-full hover:opacity-90 transition">
+            {/* <button className="mt-5 bg-gradient-to-r from-green-600 to-red-400 text-white font-semibold px-6 py-2 rounded-full hover:opacity-90 transition">
               Learn About Our Cultural Programs
-            </button>
+            </button> */}
           </div>
         </div>
 

@@ -34,7 +34,7 @@ export default function Home() {
         <CulturalCare />
         <Stats />
         <Testimonials />
-        <CTA />
+        {/* <CTA /> */}
         <ContactSection />
       </main>
       <Footer />

@@ -1,29 +1,14 @@
 import { NextResponse } from 'next/server';
-import formidable from 'formidable';
 import nodemailer from 'nodemailer';
-import fs from 'fs/promises';
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 export async function POST(req) {
-  const form = formidable({ multiples: false, keepExtensions: true });
-
-  const buffer = await req.arrayBuffer();
-  const formPromise = new Promise((resolve, reject) => {
-    form.parse(Buffer.from(buffer), (err, fields, files) => {
-      if (err) reject(err);
-      else resolve({ fields, files });
-    });
-  });
-
   try {
-    const { fields, files } = await formPromise;
-    const { name, email, phone, message } = fields;
-    const file = files.file;
+    const body = await req.json();
+    const { name, email, phone, message, resume } = body;
+
+    if (!name || !email || !resume?.content) {
+      return NextResponse.json({ success: false, error: 'Missing required fields' }, { status: 400 });
+    }
 
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
@@ -36,24 +21,21 @@ export async function POST(req) {
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
       to: process.env.MY_EMAIL,
-      subject: '📬 New Message from Contact Form',
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
-      attachments: file
-        ? [
-            {
-              filename: file.originalFilename,
-              path: file.filepath,
-            },
-          ]
+      subject: `📄 New Contact Message – ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message || 'N/A'}`,
+      attachments: resume
+        ? [{
+            filename: resume.name,
+            content: resume.content,
+            encoding: 'base64',
+            contentType: resume.type,
+          }]
         : [],
-      headers: {
-        'List-Unsubscribe': `<mailto:${process.env.MY_EMAIL}?subject=unsubscribe>`,
-      },
     });
 
     return NextResponse.json({ success: true });
-  } catch (err) {
-    console.error('Email failed:', err);
-    return NextResponse.json({ success: false, error: 'Failed to send email' }, { status: 500 });
+  } catch (error) {
+    console.error('Email send error:', error);
+    return NextResponse.json({ success: false, error: error.message || 'Server error' }, { status: 500 });
   }
 }

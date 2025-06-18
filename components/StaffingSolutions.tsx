@@ -38,9 +38,11 @@ const roles = [
 
 export default function StaffingSolutions() {
   const [showModal, setShowModal] = useState(false);
+    const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData(e.target);
     formData.append('topic', 'Join Our Network');
 
@@ -52,8 +54,10 @@ export default function StaffingSolutions() {
     if (res.ok) {
       toast.success('Inquiry submitted successfully!');
       setShowModal(false);
+        setLoading(false);
     } else {
       toast.error('Failed to send inquiry. Please try again.');
+       setLoading(false);
     }
   };
 
@@ -130,8 +134,8 @@ export default function StaffingSolutions() {
               <input type="text" name="name" placeholder="Your Name" required className="w-full border p-2 rounded" />
               <input type="email" name="email" placeholder="Your Email" required className="w-full border p-2 rounded" />
               <textarea name="message" placeholder="Your Message" rows={3} className="w-full border p-2 rounded" />
-              <button type="submit" className="bg-[#273C92] text-white px-4 py-2 rounded w-full">
-                Submit
+              <button type="submit" className="bg-[#273C92] text-white px-4 py-2 rounded w-full" disabled={loading}>
+              {loading?"Submiting":"Submit"}  
               </button>
             </form>
           </div>

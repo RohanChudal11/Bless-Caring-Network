@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const jobList = [
   {
@@ -30,27 +31,81 @@ const jobList = [
 ];
 
 export default function Jobs() {
-  const [selectedJob, setSelectedJob] = useState<any>(null);
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitting(true);
+  setErrorMsg('');
 
-    formData.append('jobTitle', selectedJob.title);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+  const file = formData.get('resume');
 
-    const res = await fetch('/api/apply-job', {
-      method: 'POST',
-      body: formData,
-    });
+  if (!file || typeof file === 'string') {
+    toast.error('Resume file is missing.');
+    setSubmitting(false);
+    return;
+  }
 
-    if (res.ok) {
-      alert('✅ Application sent successfully!');
-      setSelectedJob(null);
-    } else {
-      alert('❌ Failed to submit. Please try again.');
+  const reader = new FileReader();
+
+  reader.onloadend = async () => {
+    try {
+      if (!reader.result) {
+        throw new Error("File reading failed");
+      }
+
+      const base64File = reader.result.split(',')[1]; // ✅ extract after "data:...base64,"
+
+      const payload = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+        jobTitle: selectedJob?.title || 'Unknown',
+        resume: {
+          name: file.name,
+          type: file.type,
+          content: base64File,
+        },
+      };
+
+      const res = await fetch('/api/apply-job', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        form.reset();
+        setSelectedJob(null);
+        toast.success('Application submitted successfully!');
+      } else {
+        const data = await res.json();
+        const error = data?.error || 'Something went wrong.';
+        setErrorMsg(error);
+        toast.error(error);
+      }
+    } catch (err) {
+      toast.error('File conversion failed. Please upload a valid resume.');
+    } finally {
+      setSubmitting(false);
     }
   };
+
+  reader.onerror = () => {
+    toast.error('Failed to read the file.');
+    setSubmitting(false);
+  };
+
+  reader.readAsDataURL(file);
+};
+
+
 
   return (
     <section id="jobs" className="py-32 bg-[#f8fbff]">
@@ -128,11 +183,16 @@ export default function Jobs() {
                   rows={4}
                   className="w-full border border-gray-300 px-4 py-3 rounded-lg"
                 ></textarea>
+
+                {errorMsg && <p className="text-red-500 font-medium">{errorMsg}</p>}
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#273C92] to-[#33B6FF] text-white font-semibold py-3 rounded-full hover:opacity-90 transition"
+                  disabled={submitting}
+                  className={`w-full bg-gradient-to-r from-[#273C92] to-[#33B6FF] text-white font-semibold py-3 rounded-full transition 
+                    ${submitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'}`}
                 >
-                  Submit Application
+                  {submitting ? 'Submitting...' : 'Submit Application'}
                 </button>
               </form>
             </div>

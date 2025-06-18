@@ -1,28 +1,15 @@
 import { NextResponse } from 'next/server';
-import formidable from 'formidable';
 import nodemailer from 'nodemailer';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 export async function POST(req) {
-  const form = formidable({ keepExtensions: true });
-  const buffer = Buffer.from(await req.arrayBuffer());
-
-  const { fields, files } = await new Promise((resolve, reject) => {
-    form.parse(buffer, (err, fields, files) => {
-      if (err) reject(err);
-      else resolve({ fields, files });
-    });
-  });
-
-  const { name, email, message, jobTitle } = fields;
-  const resume = files.resume;
-
   try {
+    const body = await req.json();
+    const { name, email, jobTitle, message, resume } = body;
+
+    if (!name || !email || !jobTitle || !resume?.content) {
+      return NextResponse.json({ success: false, error: 'Missing fields' }, { status: 400 });
+    }
+
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -36,15 +23,19 @@ export async function POST(req) {
       to: process.env.MY_EMAIL,
       subject: `📄 Job Application – ${jobTitle}`,
       text: `New Application:\n\nName: ${name}\nEmail: ${email}\nJob: ${jobTitle}\n\nMessage:\n${message || 'N/A'}`,
-      attachments: resume ? [{
-        filename: resume.originalFilename,
-        path: resume.filepath,
-      }] : [],
+      attachments: [
+        {
+          filename: resume.name,
+          content: resume.content,
+          encoding: 'base64',
+          contentType: resume.type,
+        },
+      ],
     });
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error('Email error:', err);
-    return NextResponse.json({ success: false, error: 'Failed to send email' }, { status: 500 });
+    console.error(err);
+    return NextResponse.json({ success: false, error: err.message || 'Internal Error' }, { status: 500 });
   }
 }
