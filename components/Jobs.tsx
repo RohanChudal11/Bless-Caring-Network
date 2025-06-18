@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
         throw new Error("File reading failed");
       }
 
-      const base64File = reader.result.split(',')[1]; // ✅ extract after "data:...base64,"
+      const base64File = typeof reader.result === 'string' ? reader.result.split(',')[1] : ''; // ✅ extract after "data:...base64,"
 
       const payload = {
         name: formData.get('name'),
