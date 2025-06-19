@@ -59,16 +59,16 @@ export default function ContactUs() {
 
       const data = await res.json();
       if (res.ok) {
-        toast.success('✅ Your message has been sent!');
+        toast.success('Your message has been sent!');
         setShowPopup(true);
         setForm({ name: '', email: '', phone: '', message: '' });
         setFile(null);
         setTimeout(() => setShowPopup(false), 4000);
       } else {
-        toast.error(`❌ ${data?.error || 'Failed to send message'}`);
+        toast.error(`${data?.error || 'Failed to send message'}`);
       }
     } catch (err) {
-      toast.error('❌ Network error. Please try again.');
+      toast.error('Network error. Please try again.');
     } finally {
       setLoading(false);
     }
