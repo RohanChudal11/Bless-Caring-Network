@@ -7,9 +7,7 @@ import StaffingSolutions from '../components/StaffingSolutions';
 import CulturalCare from '../components/CulturalCare';
 import Services from '../components/Services'
 import WhyChoose from '../components/WhyChoose'
-import Stats from '../components/Stats'
-import Testimonials from '../components/Testimonials'
-import CTA from '../components/CTA'
+import Terms from '../components/Terms'
 import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 
@@ -32,9 +30,8 @@ export default function Home() {
         <WhyChoose />
         <Jobs />
         <CulturalCare />
-        <Stats />
-        <Testimonials />
         {/* <CTA /> */}
+        <Terms/>
         <ContactSection />
       </main>
       <Footer />
