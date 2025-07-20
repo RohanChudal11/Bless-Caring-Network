@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import {
   FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock,
-  FaExclamationTriangle, FaRocket, FaPaperclip
+  FaExclamationTriangle, FaPaperclip
 } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
@@ -97,7 +97,7 @@ export default function ContactUs() {
           }, {
             icon: <FaMapMarkerAlt />,
             title: 'Visit Us',
-            text: 'Fawkner, VIC, Australia',
+            text: '80 Mackie Road, Mulgrave 3170',
             note: 'By appointment only'
           }, {
             icon: <FaClock />,
@@ -120,7 +120,7 @@ export default function ContactUs() {
           <div className="flex items-start gap-3">
             <FaExclamationTriangle className="text-xl mt-1" />
             <div>
-              <p className="font-bold">Emergency Support</p>
+              <p className="font-bold">Emergency Support (24 Hours)</p>
               <p className="text-sm">For urgent healthcare staffing needs or emergencies, call us immediately:</p>
               <button className="mt-2 inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-full transition">
                 Call Emergency Line: 03 8577 5616
@@ -129,8 +129,11 @@ export default function ContactUs() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <form onSubmit={handleSubmit} className="bg-white border border-[#d0eaff] rounded-2xl p-6 shadow-sm space-y-4">
+        <div className="flex justify-center">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white border border-[#d0eaff] rounded-2xl p-8 shadow-md space-y-5 max-w-2xl w-full"
+          >
             <h3 className="text-lg font-bold mb-2">Send Us a Message</h3>
             <input type="text" name="name" placeholder="Your full name" value={form.name} onChange={handleChange} required className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2178bd]" />
             <input type="email" name="email" placeholder="Your email" value={form.email} onChange={handleChange} required className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2178bd]" />
@@ -147,18 +150,22 @@ export default function ContactUs() {
             </button>
             {showPopup && <div className="mt-4 text-sm text-green-600">✅ Thank you! Your message has been received.</div>}
           </form>
+        </div>
 
-          <div className="bg-[#eaf7ff] p-6 rounded-2xl shadow-sm space-y-4">
-            <h3 className="text-lg font-bold mb-4 text-[#2178bd]">Quick Actions</h3>
-            {["Book Care Assessment", "Apply for Positions", "Request Facility Staffing", "Schedule Consultation"].map((label, i) => (
-              <div key={i} className="w-full border border-gray-200 rounded-lg px-4 py-2 bg-white hover:shadow-md transition">
-                <span>{label}</span>
-              </div>
-            ))}
-            <div className="bg-[#f0fbe5] text-[#8cc641] p-4 mt-6 rounded-xl text-sm">
-              <FaRocket className="inline mr-2" />
-              Fast Response Guarantee – replies within 2 hours during business hours
-            </div>
+        {/* Embedded Google Map */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold mb-4 text-center text-[#2178bd]">Our Location</h3>
+          <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-lg border border-[#d0eaff]">
+            <iframe
+              title="Google Map - 80 Mackie Road"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.543335353847!2d145.16177557617186!3d-37.92685957196368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad614e54c33a85d%3A0x6e0cb5d054b68262!2s80%20Mackie%20Rd%2C%20Mulgrave%20VIC%203170%2C%20Australia!5e0!3m2!1sen!2sau!4v1721463247584!5m2!1sen!2sau"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>

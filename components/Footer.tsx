@@ -28,21 +28,21 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Right */}
-        <div className="flex flex-col items-center md:items-end mt-8 md:mt-0 text-center md:text-right">
+          {/* Contact LEFT (moved from right) */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <h3 className="font-bold mb-3 text-[#FBC21C] tracking-wider uppercase text-sm">
             Contact
           </h3>
           <ul className="space-y-2">
-            <li className="flex items-center justify-center md:justify-end gap-2">
+            <li className="flex items-center justify-center md:justify-start gap-2">
               <FaPhoneAlt className="text-[#FBC21C]" />
               <span>03 8577 5616</span>
             </li>
-            <li className="flex items-center justify-center md:justify-end gap-2">
+            <li className="flex items-center justify-center md:justify-start gap-2">
               <FaMapMarkerAlt className="text-[#FBC21C]" />
-              <span>Fawkner, VIC, Australia</span>
+              <span>80 Mackie Road, Mulgrave 3170</span>
             </li>
-            <li className="flex items-center justify-center md:justify-end gap-2">
+            <li className="flex items-center justify-center md:justify-start gap-2">
               <FaEnvelope className="text-[#FBC21C]" />
               <a
                 href="mailto:info@blesscaring.com.au"
