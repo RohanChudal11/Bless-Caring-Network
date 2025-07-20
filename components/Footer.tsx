@@ -1,21 +1,24 @@
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
+'use client';
+
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-tr from-[#273C92] via-[#1e2d64] to-[#33B6FF] py-10 px-4 text-white">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10 border-b border-white/10 pb-8">
-        {/* Logo Left */}
-        <div className="flex-shrink-0 flex items-center md:justify-start justify-center w-full md:w-auto mb-8 md:mb-0">
+    <footer className="bg-gradient-to-tr from-[#273C92] via-[#1e2d64] to-[#33B6FF] text-white px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto flex flex-wrap gap-10 justify-between border-b border-white/10 pb-8">
+
+        {/* Logo */}
+        <div className="w-full sm:w-auto flex justify-center sm:justify-start">
           <img
             src="/Bless-Caring-Network-logo.svg"
             alt="Bless Caring Logo"
-            className="w-40 md:w-48 max-w-full"
+            className="w-36 sm:w-44 max-w-full"
             style={{ minWidth: 130 }}
           />
         </div>
 
-        {/* Quick Links Center */}
-        <div className="flex-1 flex flex-col items-center text-center md:text-left">
+        {/* Quick Links */}
+        <div className="flex-1 min-w-[180px] text-center sm:text-left">
           <h3 className="font-bold mb-3 text-[#FBC21C] tracking-wider uppercase text-sm">
             Quick Links
           </h3>
@@ -28,25 +31,25 @@ export default function Footer() {
           </ul>
         </div>
 
-          {/* Contact LEFT (moved from right) */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+        {/* Contact Info */}
+        <div className="min-w-[200px] text-center sm:text-left">
           <h3 className="font-bold mb-3 text-[#FBC21C] tracking-wider uppercase text-sm">
             Contact
           </h3>
-          <ul className="space-y-2">
-            <li className="flex items-center justify-center md:justify-start gap-2">
+          <ul className="space-y-2 text-white/90 text-sm">
+            <li className="flex items-center justify-center sm:justify-start gap-2">
               <FaPhoneAlt className="text-[#FBC21C]" />
               <span>03 8577 5616</span>
             </li>
-            <li className="flex items-center justify-center md:justify-start gap-2">
+            <li className="flex items-start justify-center sm:justify-start gap-2">
               <FaMapMarkerAlt className="text-[#FBC21C]" />
-              <span>80 Mackie Road, Mulgrave 3170</span>
+              <span className="leading-snug max-w-[220px]">80 Mackie Road, Mulgrave 3170</span>
             </li>
-            <li className="flex items-center justify-center md:justify-start gap-2">
+            <li className="flex items-center justify-center sm:justify-start gap-2">
               <FaEnvelope className="text-[#FBC21C]" />
               <a
                 href="mailto:info@blesscaring.com.au"
-                className="hover:text-[#FBC21C] transition underline"
+                className="hover:text-[#FBC21C] transition underline break-words"
               >
                 info@blesscaring.com.au
               </a>
@@ -55,6 +58,7 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Copyright */}
       <div className="max-w-7xl mx-auto pt-6 text-center text-white/70 text-xs">
         &copy; {new Date().getFullYear()} Bless Caring Network. All Rights Reserved.
       </div>

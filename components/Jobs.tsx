@@ -102,25 +102,25 @@ export default function Jobs() {
   };
 
   return (
-    <section id="jobs" className="py-28 px-4 bg-[#f8fbff]">
+    <section id="jobs" className="py-20 px-4 sm:px-6 bg-[#f8fbff]">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[#2178bd] mb-6">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2178bd] mb-6">
           Explore Job Opportunities
         </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+        <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mb-12">
           Handpicked healthcare roles tailored for compassionate professionals across Australia.
         </p>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobList.map((job) => (
             <div
               key={job.id}
-              className="bg-white border border-[#d0eaff] rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+              className="bg-white border border-[#d0eaff] rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group"
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-[#2178bd] group-hover:text-[#8cc641] mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-[#2178bd] group-hover:text-[#8cc641] mb-4">
                 {job.title}
               </h3>
-              <ul className="text-base text-gray-700 leading-relaxed mb-6 space-y-1 text-left">
+              <ul className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 text-left space-y-1">
                 <li><strong>Type:</strong> {job.type}</li>
                 <li><strong>Category:</strong> {job.category}</li>
                 <li><strong>Dates:</strong> {job.dates}</li>
@@ -129,7 +129,7 @@ export default function Jobs() {
               </ul>
               <button
                 onClick={() => setSelectedJob(job)}
-                className="mt-auto bg-gradient-to-r from-[#2178bd] to-[#8cc641] text-white font-semibold px-6 py-3 rounded-full shadow hover:opacity-90 transition"
+                className="w-full bg-gradient-to-r from-[#2178bd] to-[#8cc641] text-white font-semibold px-4 py-3 rounded-full shadow hover:opacity-90 transition"
               >
                 Apply Now
               </button>
@@ -139,15 +139,15 @@ export default function Jobs() {
 
         {/* Modal Form */}
         {selectedJob && (
-          <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center px-4">
-            <div className="bg-white p-6 sm:p-10 rounded-2xl max-w-xl w-full relative shadow-2xl border border-[#8cc641]/30">
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center px-4 overflow-y-auto">
+            <div className="bg-white p-6 sm:p-10 rounded-2xl max-w-xl w-full relative shadow-2xl border border-[#8cc641]/30 mt-12 mb-12">
               <button
                 className="absolute top-3 right-5 text-3xl text-gray-500 hover:text-red-500"
                 onClick={() => setSelectedJob(null)}
               >
                 ×
               </button>
-              <h3 className="text-2xl font-bold text-[#2178bd] mb-6 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#2178bd] mb-6 text-center">
                 Apply for: {selectedJob.title}
               </h3>
               <form onSubmit={handleSubmit} className="space-y-5" encType="multipart/form-data">

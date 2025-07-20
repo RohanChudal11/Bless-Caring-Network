@@ -82,17 +82,18 @@ export default function PrivacyPolicyPage() {
   ];
 
   return (
-    <section className="bg-[#f8fbff] py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#f8fbff] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-4 leading-tight">
           <span className="text-[#2178bd]">Bless Caring</span>{' '}
-          <span className="text-green-600">Network</span>
+          <span className="text-[#8cc641]">Network</span>
         </h1>
+
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
           Compliant with the Privacy Act 1988, Australian Privacy Principles (APPs), and Health Privacy Principles (HPPs).
         </p>
 
-        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.map((section, index) => (
             <div
               key={index}
@@ -100,9 +101,11 @@ export default function PrivacyPolicyPage() {
             >
               <div className="flex items-start gap-3 mb-2">
                 {section.icon}
-                <h3 className="text-base font-semibold text-[#273C92]">{section.title}</h3>
+                <h3 className="text-base sm:text-lg font-semibold text-[#273C92]">{section.title}</h3>
               </div>
-              <p className="text-gray-700 text-sm sm:text-[15px] leading-relaxed">{section.description}</p>
+              <p className="text-gray-700 text-sm sm:text-[15px] leading-relaxed">
+                {section.description}
+              </p>
             </div>
           ))}
         </div>

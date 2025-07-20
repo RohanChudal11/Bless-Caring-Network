@@ -74,16 +74,16 @@ export default function ContactUs() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-gradient-to-b from-[#f4fafd] to-white py-20 px-6 text-[#2178bd]">
+    <section id="contact" className="scroll-mt-24 bg-gradient-to-b from-[#f4fafd] to-white py-20 px-4 sm:px-6 text-[#2178bd]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-2">
           <span className="text-[#8cc641]">Contact</span> Our Team
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-sm sm:text-base">
           Ready to start your healthcare journey or join our team? We’re here to help you every step of the way.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
           {[{
             icon: <FaPhone />,
             title: 'Call Us',
@@ -116,13 +116,13 @@ export default function ContactUs() {
           ))}
         </div>
 
-        <div className="bg-red-100 border border-red-300 text-red-800 p-6 rounded-xl mb-12 shadow">
-          <div className="flex items-start gap-3">
+        <div className="bg-red-100 border border-red-300 text-red-800 p-4 sm:p-6 rounded-xl mb-12 shadow text-sm sm:text-base">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <FaExclamationTriangle className="text-xl mt-1" />
             <div>
               <p className="font-bold">Emergency Support (24 Hours)</p>
               <p className="text-sm">For urgent healthcare staffing needs or emergencies, call us immediately:</p>
-              <button className="mt-2 inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-full transition">
+              <button className="mt-2 inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-full transition text-sm sm:text-base">
                 Call Emergency Line: 03 8577 5616
               </button>
             </div>
@@ -132,14 +132,14 @@ export default function ContactUs() {
         <div className="flex justify-center">
           <form
             onSubmit={handleSubmit}
-            className="bg-white border border-[#d0eaff] rounded-2xl p-8 shadow-md space-y-5 max-w-2xl w-full"
+            className="bg-white border border-[#d0eaff] rounded-2xl p-6 sm:p-8 shadow-md space-y-5 w-full max-w-2xl"
           >
             <h3 className="text-lg font-bold mb-2">Send Us a Message</h3>
             <input type="text" name="name" placeholder="Your full name" value={form.name} onChange={handleChange} required className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2178bd]" />
             <input type="email" name="email" placeholder="Your email" value={form.email} onChange={handleChange} required className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2178bd]" />
             <input type="tel" name="phone" placeholder="Your phone number" value={form.phone} onChange={handleChange} className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2178bd]" />
             <textarea name="message" placeholder="Your message..." value={form.message} onChange={handleChange} rows={4} required className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2178bd]" />
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <label className="flex items-center gap-2 text-sm text-gray-600">
                 <FaPaperclip /> Attach file:
               </label>
@@ -155,7 +155,7 @@ export default function ContactUs() {
         {/* Embedded Google Map */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold mb-4 text-center text-[#2178bd]">Our Location</h3>
-          <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-lg border border-[#d0eaff]">
+          <div className="w-full h-[300px] sm:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-[#d0eaff]">
             <iframe
               title="Google Map - 80 Mackie Road"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.543335353847!2d145.16177557617186!3d-37.92685957196368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad614e54c33a85d%3A0x6e0cb5d054b68262!2s80%20Mackie%20Rd%2C%20Mulgrave%20VIC%203170%2C%20Australia!5e0!3m2!1sen!2sau!4v1721463247584!5m2!1sen!2sau"

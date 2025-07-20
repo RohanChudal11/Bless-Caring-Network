@@ -107,25 +107,26 @@ const staffingHighlights = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-16 sm:py-24 bg-gray-50">
+    <section id="services" className="py-12 sm:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Main Services */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-[#2178bd] mb-12 sm:mb-16">
+        {/* Our Services Title */}
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-center text-[#2178bd] mb-10 sm:mb-16">
           Our Services
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-[#d0e8ff] hover:shadow-2xl hover:scale-[1.03] transition-all duration-300"
+              className="bg-white p-5 sm:p-6 rounded-2xl shadow-md border border-[#d0e8ff] hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#8cc641] to-[#2178bd] flex items-center justify-center text-white text-2xl shadow-md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#8cc641] to-[#2178bd] flex items-center justify-center text-white text-xl sm:text-2xl shadow-md">
                   {service.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#2178bd]">
+                <h3 className="text-base sm:text-lg font-bold text-[#2178bd]">
                   {service.title}
                 </h3>
               </div>
@@ -139,29 +140,29 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Healthcare Staffing Solutions */}
-        <div className="mt-20 sm:mt-24 bg-[#e6f4ff] py-16 sm:py-20 px-6 md:px-12 rounded-3xl text-center shadow-sm">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">
+        {/* Healthcare Staffing Section */}
+        <div className="mt-16 sm:mt-24 bg-[#e6f4ff] py-12 sm:py-20 px-5 sm:px-10 md:px-16 rounded-3xl text-center shadow-sm">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-5 sm:mb-6">
             <span className="text-[#2178bd]">Healthcare Staffing</span>{" "}
             <span className="text-[#8cc641]">Solutions</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto mb-12 sm:mb-14">
+          <p className="text-sm sm:text-base text-gray-700 max-w-3xl mx-auto mb-10 sm:mb-14">
             Connecting exceptional healthcare professionals with leading facilities across Australia
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {staffingHighlights.map((item, i) => (
               <div
                 key={i}
-                className="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:scale-105 border border-[#cfeaff]"
+                className="bg-white p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:scale-[1.03] border border-[#cfeaff]"
               >
-                <div className="flex flex-col items-center text-center space-y-3">
-                  <div className="w-12 h-12 bg-[#d9f0ff] text-[#2178bd] rounded-full flex items-center justify-center text-xl shadow-sm">
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <div className="w-10 h-10 bg-[#d9f0ff] text-[#2178bd] rounded-full flex items-center justify-center text-lg shadow-sm">
                     🏥
                   </div>
-                  <h3 className="text-base font-bold text-[#2178bd]">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                  <span className="text-xs font-semibold bg-[#8cc641] text-white px-3 py-1 rounded-full mt-2 shadow-sm">
+                  <h3 className="text-sm sm:text-base font-bold text-[#2178bd]">{item.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                  <span className="text-[10px] sm:text-xs font-semibold bg-[#8cc641] text-white px-3 py-1 rounded-full mt-1 shadow-sm">
                     {item.tag}
                   </span>
                 </div>
@@ -170,9 +171,9 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Serving Victoria */}
-        <div className="text-center mt-16 sm:mt-20">
-          <h3 className="text-xl sm:text-2xl font-semibold text-[#2178bd]">
+        {/* Victoria Note */}
+        <div className="text-center mt-14 sm:mt-20">
+          <h3 className="text-lg sm:text-2xl font-semibold text-[#2178bd]">
             Serving Communities Across <span className="text-[#8cc641]">Victoria</span>
           </h3>
         </div>

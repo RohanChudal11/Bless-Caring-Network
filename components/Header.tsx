@@ -17,7 +17,6 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  // Close menu on scroll or route change
   useEffect(() => {
     const closeMenu = () => setOpen(false);
     window.addEventListener("scroll", closeMenu);
@@ -46,6 +45,8 @@ export default function Header() {
             style={{ maxWidth: 180 }}
           />
         </a>
+
+        {/* Hamburger */}
         <button
           className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#33B6FF]"
           onClick={() => setOpen(!open)}
@@ -62,7 +63,7 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <ul className="hidden md:flex gap-6 items-center">
           {navItems.map((item) => (
             <li key={item.label}>
@@ -78,13 +79,13 @@ export default function Header() {
         </ul>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Nav */}
       <div
-        className={`md:hidden absolute top-16 left-0 right-0 bg-white shadow-md transform transition-all duration-300 ${
-          open ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
-        } origin-top`}
+        className={`md:hidden transition-all transform origin-top duration-300 ease-in-out ${
+          open ? "scale-y-100 opacity-100 max-h-screen" : "scale-y-0 opacity-0 max-h-0"
+        } overflow-hidden bg-white px-4 shadow-md`}
       >
-        <ul className="flex flex-col items-start p-4 gap-4">
+        <ul className="flex flex-col items-start py-4 gap-4">
           {navItems.map((item) => (
             <li key={item.label}>
               <a

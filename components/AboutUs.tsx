@@ -44,15 +44,18 @@ export default function AboutUs() {
   };
 
   return (
-    <section id="about" className="bg-gradient-to-b from-[#f4f8fd] to-white py-16 sm:py-20 text-[#2178bd]">
+    <section
+      id="about"
+      className="bg-gradient-to-b from-[#f4f8fd] to-white py-14 sm:py-20 text-[#2178bd]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-14 px-2">
           <span className="text-sm text-[#8cc641] font-semibold uppercase tracking-wide mb-2 block">
             About Our Mission
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 leading-tight">
             More Than Support. <span className="text-[#8cc641]">Real Care</span>, From Real Nurses.
           </h1>
           <p className="text-base text-gray-700">
@@ -62,7 +65,7 @@ export default function AboutUs() {
         </div>
 
         {/* Mission & Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16 px-2">
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-[#2178bd]">Our Journey</h3>
             <p className="text-gray-700">
@@ -75,7 +78,7 @@ export default function AboutUs() {
               <span className="text-[#8cc641] font-semibold"> you'll always feel heard, safe, and supported.</span>
             </p>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-lg">
+          <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-full">
             <Image
               src={bishalImg}
               alt="bishal"
@@ -86,8 +89,8 @@ export default function AboutUs() {
         </div>
 
         {/* Why Choose Us */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#2178bd] mb-3">
+        <div className="text-center mb-10 px-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#2178bd] mb-3">
             Why Families & Facilities Choose Us
           </h2>
           <p className="text-gray-700 max-w-xl mx-auto">
@@ -95,7 +98,7 @@ export default function AboutUs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20 px-2">
           {[
             {
               icon: <FaUserNurse />,
@@ -139,17 +142,17 @@ export default function AboutUs() {
           ))}
         </div>
 
-        {/* Final CTA Section */}
+        {/* Final CTA */}
         <div className="mt-10 border border-[#d0e6f0] bg-gradient-to-b from-[#f9fcfe] to-white rounded-3xl px-6 py-14 text-center shadow-sm">
           <div className="flex justify-center mb-6">
             <div className="w-14 h-14 bg-gradient-to-br from-[#2178bd] to-[#8cc641] rounded-full flex items-center justify-center text-white text-2xl shadow">
               <FaStethoscope />
             </div>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#2178bd] mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#2178bd] mb-3">
             Ready to Experience Nurse-Led Care?
           </h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto px-2">
             Join thousands of families and healthcare professionals who trust us for exceptional care and career opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -172,7 +175,7 @@ export default function AboutUs() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center px-4">
-          <div className="bg-white p-6 rounded-xl w-full max-w-md relative shadow-lg">
+          <div className="bg-white p-4 sm:p-6 rounded-xl w-full max-w-[90vw] sm:max-w-md relative shadow-lg overflow-y-auto max-h-[90vh]">
             <button
               className="absolute top-2 right-3 text-xl"
               onClick={() => setShowModal(false)}
@@ -192,7 +195,7 @@ export default function AboutUs() {
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
               />
               <button type="submit" className="bg-[#2178bd] text-white px-4 py-2 rounded w-full" disabled={loading}>
-                {loading ? "Submitting..." : "Submit"}
+                {loading ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>
