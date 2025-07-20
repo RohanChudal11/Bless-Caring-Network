@@ -84,7 +84,7 @@ export default function ContactUs() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[{ icon: <FaPhone />, title: 'Call Us', text: '1300-NURSE-1 (1300-687-731)', note: '24/7 emergency support available' },
+          {[{ icon: <FaPhone />, title: 'Call Us', text: '03 8577 5616', note: '24/7 emergency support available' },
             { icon: <FaEnvelope />, title: 'Email Us', text: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@nurseledhealthcare.com.au', note: 'We respond within 2 hours' },
             { icon: <FaMapMarkerAlt />, title: 'Visit Us', text: 'Level 15, 123 Collins Street', note: 'By appointment only' },
             { icon: <FaClock />, title: 'Business Hours', text: 'Mon–Fri: 8AM–6PM', note: 'Sat–Sun: Emergency only' },
@@ -107,7 +107,7 @@ export default function ContactUs() {
               <p className="font-bold">Emergency Support</p>
               <p className="text-sm">For urgent healthcare staffing needs or emergencies, call us immediately:</p>
               <button className="mt-2 inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-full transition">
-                Call Emergency Line: 1300-NURSE-1
+                Call Emergency Line: 03 8577 5616
               </button>
             </div>
           </div>

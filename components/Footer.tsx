@@ -36,7 +36,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li className="flex items-center justify-center md:justify-end gap-2">
               <FaPhoneAlt className="text-[#FBC21C]" />
-              <span>0452 239 053</span>
+              <span>03 8577 5616</span>
             </li>
             <li className="flex items-center justify-center md:justify-end gap-2">
               <FaMapMarkerAlt className="text-[#FBC21C]" />
