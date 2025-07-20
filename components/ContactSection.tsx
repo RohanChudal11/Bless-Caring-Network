@@ -84,11 +84,27 @@ export default function ContactUs() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[{ icon: <FaPhone />, title: 'Call Us', text: '03 8577 5616', note: '24/7 emergency support available' },
-            { icon: <FaEnvelope />, title: 'Email Us', text: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'Info@blesscaring.com.au', note: 'We respond within 2 hours' },
-            { icon: <FaMapMarkerAlt />, title: 'Visit Us', text: 'Level 15, 123 Collins Street', note: 'By appointment only' },
-            { icon: <FaClock />, title: 'Business Hours', text: 'Mon–Fri: 8AM–6PM', note: 'Sat–Sun: Emergency only' },
-          ].map((item, i) => (
+          {[{
+            icon: <FaPhone />,
+            title: 'Call Us',
+            text: '03 8577 5616',
+            note: '24/7 emergency support available'
+          }, {
+            icon: <FaEnvelope />,
+            title: 'Email Us',
+            text: 'info@blesscaring.com.au',
+            note: 'We respond within 2 hours'
+          }, {
+            icon: <FaMapMarkerAlt />,
+            title: 'Visit Us',
+            text: 'Fawkner, VIC, Australia',
+            note: 'By appointment only'
+          }, {
+            icon: <FaClock />,
+            title: 'Business Hours',
+            text: 'Mon–Fri: 8AM–6PM',
+            note: 'Sat–Sun: Emergency only'
+          }].map((item, i) => (
             <div key={i} className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-all">
               <div className="w-12 h-12 bg-[#e5f7ff] text-[#2178bd] rounded-full flex items-center justify-center mb-4 text-xl">
                 {item.icon}
