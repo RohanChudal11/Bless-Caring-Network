@@ -85,7 +85,7 @@ export default function ContactUs() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {[{ icon: <FaPhone />, title: 'Call Us', text: '03 8577 5616', note: '24/7 emergency support available' },
-            { icon: <FaEnvelope />, title: 'Email Us', text: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@nurseledhealthcare.com.au', note: 'We respond within 2 hours' },
+            { icon: <FaEnvelope />, title: 'Email Us', text: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'Info@blesscaring.com.au', note: 'We respond within 2 hours' },
             { icon: <FaMapMarkerAlt />, title: 'Visit Us', text: 'Level 15, 123 Collins Street', note: 'By appointment only' },
             { icon: <FaClock />, title: 'Business Hours', text: 'Mon–Fri: 8AM–6PM', note: 'Sat–Sun: Emergency only' },
           ].map((item, i) => (
