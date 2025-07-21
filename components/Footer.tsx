@@ -5,20 +5,19 @@ import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-tr from-[#273C92] via-[#1e2d64] to-[#33B6FF] text-white px-4 sm:px-6 lg:px-8 py-10">
-      <div className="max-w-7xl mx-auto flex flex-wrap gap-10 justify-between border-b border-white/10 pb-8">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-10 sm:gap-20 justify-between items-center sm:items-start border-b border-white/10 pb-8">
 
-        {/* Logo */}
+        {/* Logo Section */}
         <div className="w-full sm:w-auto flex justify-center sm:justify-start">
           <img
             src="/Bless-Caring-Network-logo.svg"
             alt="Bless Caring Logo"
-            className="w-36 sm:w-44 max-w-full"
-            style={{ minWidth: 130 }}
+            className="w-40 sm:w-44 object-contain"
           />
         </div>
 
         {/* Quick Links */}
-        <div className="flex-1 min-w-[180px] text-center sm:text-left">
+        <div className="text-center sm:text-left">
           <h3 className="font-bold mb-3 text-[#FBC21C] tracking-wider uppercase text-sm">
             Quick Links
           </h3>
@@ -32,7 +31,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Info */}
-        <div className="min-w-[200px] text-center sm:text-left">
+        <div className="text-center sm:text-left">
           <h3 className="font-bold mb-3 text-[#FBC21C] tracking-wider uppercase text-sm">
             Contact
           </h3>
@@ -41,15 +40,17 @@ export default function Footer() {
               <FaPhoneAlt className="text-[#FBC21C]" />
               <span>03 8577 5616</span>
             </li>
-            <li className="flex items-start justify-center sm:justify-start gap-2">
+            <li className="flex items-start justify-center sm:justify-start gap-2 text-center sm:text-left">
               <FaMapMarkerAlt className="text-[#FBC21C]" />
-              <span className="leading-snug max-w-[220px]">80 Mackie Road, Mulgrave 3170</span>
+              <span className="leading-snug max-w-[240px]">
+                80 Mackie Road, Mulgrave 3170
+              </span>
             </li>
-            <li className="flex items-center justify-center sm:justify-start gap-2">
+            <li className="flex items-center justify-center sm:justify-start gap-2 break-all">
               <FaEnvelope className="text-[#FBC21C]" />
               <a
                 href="mailto:info@blesscaring.com.au"
-                className="hover:text-[#FBC21C] transition underline break-words"
+                className="hover:text-[#FBC21C] transition underline"
               >
                 info@blesscaring.com.au
               </a>
